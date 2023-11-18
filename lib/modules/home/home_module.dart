@@ -6,25 +6,19 @@ import '../rula/rula_module.dart';
 
 class HomeModule extends Module {
   @override
-  void binds(Injector i) {
-    i.add(HomeControllerImpl.new);
-    super.binds(i);
-  }
+  List<Bind<Object>> get binds => [
+        Bind((i) => HomeControllerImpl()),
+      ];
 
   @override
-  void routes(RouteManager r) {
-    r.add(
-      ChildRoute(
-        Modular.initialRoute,
-        child: (_) => const HomePage(),
-      ),
-    );
-    r.add(
-      ModuleRoute(
-        '/rula/',
-        module: RulaModule(),
-      ),
-    );
-    super.routes(r);
-  }
+  List<ModularRoute> get routes => [
+        ChildRoute(
+          Modular.initialRoute,
+          child: (_, args) => const HomePage(),
+        ),
+        ModuleRoute(
+          '/rula/',
+          module: RulaModule(),
+        ),
+      ];
 }
