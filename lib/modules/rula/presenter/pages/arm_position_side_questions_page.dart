@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
-import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
 import '../controllers/arm_position_controller.dart';
 
-class ArmPositionPage extends StatefulWidget {
-  const ArmPositionPage({super.key});
+class ArmPositionSideQuestionsPage extends StatefulWidget {
+  const ArmPositionSideQuestionsPage({super.key});
 
   @override
-  State<ArmPositionPage> createState() => _ArmPositionPageState();
+  State<ArmPositionSideQuestionsPage> createState() =>
+      _ArmPositionSideQuestionsPageState();
 }
 
-class _ArmPositionPageState extends State<ArmPositionPage> {
+class _ArmPositionSideQuestionsPageState
+    extends State<ArmPositionSideQuestionsPage> {
   final controller = Modular.get<ArmPositionController>();
 
   @override
@@ -21,7 +22,7 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
       appBar: AppBar(
         title: const Text('Posição dos braços'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,13 +41,17 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  ScoreSetterWidget(
-                    onScore: (score) {
-                      setState(() {
-                        controller.leftScore = score;
-                      });
-                    },
-                  ),
+                  for (final question in controller.sideQuestionsLeft) ...{
+                    CheckboxListTile(
+                      value: question['value'],
+                      onChanged: (value) {
+                        setState(() {
+                          question['value'] = value;
+                        });
+                      },
+                      title: Text(question['title']),
+                    ),
+                  },
                 ],
               ),
             ),
@@ -62,13 +67,17 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  ScoreSetterWidget(
-                    onScore: (score) {
-                      setState(() {
-                        controller.rightScore = score;
-                      });
-                    },
-                  ),
+                  for (final question in controller.sideQuestionsRight) ...{
+                    CheckboxListTile(
+                      value: question['value'],
+                      onChanged: (value) {
+                        setState(() {
+                          question['value'] = value;
+                        });
+                      },
+                      title: Text(question['title']),
+                    ),
+                  },
                 ],
               ),
             ),
@@ -79,10 +88,10 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
         Column(
           children: [
             CustomButtonWidget(
-              enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                Modular.to.pushNamed('./arm-pos-side-questions/');
+                controller.leftScore += controller.totalTrueInLeft;
+                controller.rightScore += controller.totalTrueInRight;
               },
             ),
           ],

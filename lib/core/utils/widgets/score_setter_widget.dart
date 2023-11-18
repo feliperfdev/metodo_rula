@@ -29,15 +29,17 @@ class _ScoreSetterWidgetState extends State<ScoreSetterWidget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-            onPressed: () {
-              setState(() {
-                score--;
-                widget.onScore(score);
-              });
-            },
-            icon: const Icon(
+            onPressed: score == 0
+                ? null
+                : () {
+                    setState(() {
+                      score--;
+                      widget.onScore(score);
+                    });
+                  },
+            icon: Icon(
               Icons.remove,
-              color: Colors.purple,
+              color: score == 0 ? Colors.grey : Colors.purple,
             ),
           ),
           const SizedBox(width: 8),
