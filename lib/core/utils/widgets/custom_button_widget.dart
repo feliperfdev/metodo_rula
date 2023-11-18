@@ -17,7 +17,7 @@ class CustomButtonWidget extends StatelessWidget {
       onPressed: enabled ? onTap : null,
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(
-          enabled ? Colors.purple : Colors.grey,
+          enabled ? Colors.purple : Colors.grey[300],
         ),
       ),
       child: Center(
@@ -25,7 +25,7 @@ class CustomButtonWidget extends StatelessWidget {
           text,
           style: TextStyle(
             fontSize: 24,
-            color: enabled ? Colors.white : Colors.grey[850],
+            color: enabled ? Colors.white : Colors.grey[700],
           ),
         ),
       ),

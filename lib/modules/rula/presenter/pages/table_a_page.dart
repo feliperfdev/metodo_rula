@@ -25,40 +25,61 @@ class _TableAPageState extends State<TableAPage> {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            const Text(
-              'Resultado para o membro superior esquerdo',
-              style: TextStyle(
-                color: Colors.purple,
-                fontSize: 20,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 30),
+              const Text(
+                'Resultado para o membro superior esquerdo',
+                style: TextStyle(
+                  color: Colors.purple,
+                  fontSize: 18,
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Text(controller
-                .result(arm.leftScore, forearm.leftScore, fist.leftScore, 1)
-                .toString()),
-            const SizedBox(height: 30),
-            const Text(
-              'Resultado para o membro superior direito',
-              style: TextStyle(
-                color: Colors.purple,
-                fontSize: 20,
+              const SizedBox(height: 10),
+              Text(
+                controller
+                    .result(arm.leftScore, forearm.leftScore, fist.leftScore, 1)
+                    .toString(),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.purple[400],
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Text(controller
-                .result(arm.rightScore, forearm.rightScore, fist.rightScore, 1)
-                .toString()),
-          ],
+              const SizedBox(height: 30),
+              const Text(
+                'Resultado para o membro superior direito',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.purple,
+                  fontSize: 18,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                controller
+                    .result(
+                        arm.rightScore, forearm.rightScore, fist.rightScore, 1)
+                    .toString(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.purple[400],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       persistentFooterButtons: [
         Column(
           children: [
             CustomButtonWidget(
-              text: 'Próximo',
+              text: 'Próximo - Membros inferiores',
               onTap: () {
                 Modular.to.pushNamed('./../table_a/');
               },
