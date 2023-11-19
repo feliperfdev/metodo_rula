@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:intl/intl.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/table_c_widget.dart';
 
@@ -72,6 +73,14 @@ class _TableCPageState extends State<TableCPage> {
                 fontSize: 14,
               ),
             ),
+            const SizedBox(height: 30),
+            Text(
+              'Vistoria realizada em: ${DateFormat.yMEd().format(DateTime.now())}',
+              style: const TextStyle(
+                color: Colors.purple,
+                fontSize: 14,
+              ),
+            )
           ],
         ),
       ),

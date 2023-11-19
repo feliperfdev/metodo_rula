@@ -1,16 +1,14 @@
-# metodo_rula
+# Método RULA
 
-A new Flutter project.
+Aplicativo desenvolvido para a 3ª avaliação da disciplina de **`Higiene e Segurança no Trabalho`**.
 
-## Getting Started
+### Docente
 
-This project is a starting point for a Flutter application.
+- George Augusto Batista Câmara
 
-A few resources to get you started if this is your first Flutter project:
+### Discentes
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- André Lucas do Nascimento dos Santos
+- Daniel Barbosa Bastos
+- Felipe Azevedo Ribeiro
+- João Pedro de Lima Oliveira
