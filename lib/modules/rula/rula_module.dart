@@ -6,9 +6,12 @@ import 'presenter/controllers/fist_position_controller.dart';
 import 'presenter/controllers/forearm_controller.dart';
 import 'presenter/controllers/muscular_contraction_controller.dart';
 import 'presenter/controllers/neck_position_controller.dart';
+import 'presenter/controllers/rula_result_controller.dart';
 import 'presenter/controllers/strength_and_load_controller.dart';
 import 'presenter/controllers/table_a_controller.dart';
+import 'presenter/controllers/table_b_controller.dart';
 import 'presenter/controllers/table_c_controller.dart';
+import 'presenter/controllers/trunk_position_controller.dart';
 import 'presenter/pages/arm_position_side_questions_page.dart';
 import 'presenter/pages/fist_position_page.dart';
 import 'presenter/pages/forearm_position_page.dart';
@@ -16,6 +19,8 @@ import 'presenter/pages/muscular_contraction_page.dart';
 import 'presenter/pages/neck_position_page.dart';
 import 'presenter/pages/strength_and_load_page.dart';
 import 'presenter/pages/table_a_page.dart';
+import 'presenter/pages/table_c_page.dart';
+import 'presenter/pages/trunk_position_page.dart';
 
 class RulaModule extends Module {
   @override
@@ -27,7 +32,10 @@ class RulaModule extends Module {
         Bind((i) => MuscularContractionControllerImpl()),
         Bind((i) => StrengthAndLoadControllerImpl()),
         Bind((i) => NeckPositionControllerImpl()),
+        Bind((i) => TrunkPositionControllerImpl()),
         Bind((i) => TableCControllerImpl()),
+        Bind((i) => TableBControllerImpl()),
+        Bind((i) => RulaResultControllerImpl()),
       ];
 
   @override
@@ -54,11 +62,11 @@ class RulaModule extends Module {
         ),
         ChildRoute(
           '/muscular_contraction/',
-          child: (_, args) => const MuscularContractionPage(),
+          child: (_, args) => MuscularContractionPage(legs: args.data),
         ),
         ChildRoute(
           '/strength_and_load/',
-          child: (_, args) => const StrengthAndLoadPage(),
+          child: (_, args) => StrengthAndLoadPage(legs: args.data),
         ),
         ChildRoute(
           '/neck_position/',
@@ -66,7 +74,11 @@ class RulaModule extends Module {
         ),
         ChildRoute(
           '/trunk_position/',
-          child: (_, args) => const NeckPositionPage(),
+          child: (_, args) => const TrunkPositionPage(),
+        ),
+        ChildRoute(
+          '/table_c/',
+          child: (_, args) => const TableCPage(),
         ),
       ];
 }

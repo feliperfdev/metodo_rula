@@ -103,7 +103,8 @@ class _TableAPageState extends State<TableAPage> {
             CustomButtonWidget(
               text: 'Próximo',
               onTap: () {
-                Modular.to.pushNamed('./../muscular_contraction/');
+                Modular.to
+                    .pushNamed('./../muscular_contraction/', arguments: false);
               },
             ),
           ],

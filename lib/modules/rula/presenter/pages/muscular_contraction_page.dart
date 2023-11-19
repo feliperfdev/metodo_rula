@@ -5,7 +5,8 @@ import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import '../controllers/muscular_contraction_controller.dart';
 
 class MuscularContractionPage extends StatefulWidget {
-  const MuscularContractionPage({super.key});
+  final bool legs;
+  const MuscularContractionPage({super.key, required this.legs});
 
   @override
   State<MuscularContractionPage> createState() =>
@@ -16,10 +17,21 @@ class MuscularContractionPageState extends State<MuscularContractionPage> {
   final controller = Modular.get<MuscularContractionController>();
 
   @override
+  void initState() {
+    if (widget.legs) {
+      controller.leftScore = 0;
+      controller.rightScore = 0;
+      controller.selectedValueLeft = null;
+      controller.selectedValueRight = null;
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contração muscular'),
+        title: Text('Contração muscular${widget.legs ? " (Pernas)" : ""}'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -95,7 +107,10 @@ class MuscularContractionPageState extends State<MuscularContractionPage> {
                   controller.leftScore += 1;
                   controller.rightScore += 1;
                 }
-                Modular.to.pushNamed('./../strength_and_load/').then(
+                Modular.to
+                    .pushNamed('./../strength_and_load/',
+                        arguments: widget.legs)
+                    .then(
                   (_) {
                     setState(() {
                       controller.selectedValueLeft = null;
