@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:metodo_rula/core/utils/widgets/table_column_widget.dart';
 
 class TableCWidget extends StatefulWidget {
-  final int resultTableA;
-  final int resultTableB;
+  final int verticalScore;
+  final int horizontalScore;
   const TableCWidget({
     super.key,
-    required this.resultTableA,
-    required this.resultTableB,
+    required this.verticalScore,
+    required this.horizontalScore,
   });
 
   @override
@@ -27,7 +27,7 @@ class _TableCWidgetState extends State<TableCWidget> {
               (index) => Container(
                 height: 20,
                 width: 35,
-                color: widget.resultTableA == (index + 1)
+                color: widget.horizontalScore == (index + 1)
                     ? Colors.blue
                     : Colors.white,
                 child: Text(index == 6 ? '7+' : '${index + 1}'),
@@ -41,7 +41,7 @@ class _TableCWidgetState extends State<TableCWidget> {
               isFirst: true,
               selectable: true,
               hasProgress: false,
-              selectedFromTableB: widget.resultTableB,
+              selectedFromTableB: widget.verticalScore,
             ),
             const TableColumnWidget(
               isFirst: false,
