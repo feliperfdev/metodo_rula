@@ -82,7 +82,8 @@ class TrunkPositionPageState extends State<TrunkPositionPage> {
                 final tableB = Modular.get<TableBController>();
                 final neck = Modular.get<NeckPositionController>();
 
-                tableB.tableBScore = neck.score + controller.score;
+                tableB.tableBScoreLeft = neck.score + controller.score;
+                tableB.tableBScoreRight = neck.score + controller.score;
 
                 Modular.to
                     .pushNamed('./../muscular_contraction/', arguments: true);

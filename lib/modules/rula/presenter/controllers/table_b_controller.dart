@@ -1,6 +1,7 @@
 abstract class TableBController {
   int result(int pescoco, int tronco, int perna);
-  late int tableBScore;
+  late int tableBScoreLeft;
+  late int tableBScoreRight;
 }
 
 class TableBControllerImpl implements TableBController {
@@ -40,5 +41,7 @@ class TableBControllerImpl implements TableBController {
   }
 
   @override
-  int tableBScore = 0;
+  int tableBScoreLeft = 0;
+  @override
+  int tableBScoreRight = 0;
 }

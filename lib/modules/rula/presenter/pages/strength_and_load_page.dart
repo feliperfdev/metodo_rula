@@ -4,6 +4,7 @@ import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 
 import '../controllers/muscular_contraction_controller.dart';
 import '../controllers/strength_and_load_controller.dart';
+import '../controllers/table_b_controller.dart';
 import '../controllers/table_c_controller.dart';
 
 class StrengthAndLoadPage extends StatefulWidget {
@@ -111,10 +112,14 @@ class StrengthAndLoadPageState extends State<StrengthAndLoadPage> {
                 controller.rightScore = controller.selectedQuestionRight!;
 
                 if (widget.legs) {
-                  tableC.tableHorizontalScoreLeft =
-                      muscularContraction.leftScore + controller.leftScore;
-                  tableC.tableHorizontalScoreRight =
-                      muscularContraction.rightScore + controller.rightScore;
+                  final tableB = Modular.get<TableBController>();
+
+                  tableC.tableHorizontalScoreLeft = tableB.tableBScoreLeft +
+                      muscularContraction.leftScore +
+                      controller.leftScore;
+                  tableC.tableHorizontalScoreRight = tableB.tableBScoreRight +
+                      muscularContraction.rightScore +
+                      controller.rightScore;
 
                   Modular.to.pushNamed('./../table_c/').then(
                     (_) {

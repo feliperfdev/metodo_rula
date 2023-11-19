@@ -42,8 +42,8 @@ class TableCControllerImpl implements TableCController {
     if (tableVerticalScoreLeft > 7) {
       tableVerticalScoreLeft = 7;
     }
-    for (int i = 0; i < tableHorizontalScoreLeft; i++) {
-      for (int j = 0; j < tableVerticalScoreLeft; j++) {
+    for (int i = 0; i <= tableVerticalScoreLeft - 1; i++) {
+      for (int j = 0; j <= tableHorizontalScoreLeft - 1; j++) {
         result = tableCScore[i][j];
       }
     }
@@ -59,8 +59,8 @@ class TableCControllerImpl implements TableCController {
     if (tableVerticalScoreRight > 7) {
       tableVerticalScoreRight = 7;
     }
-    for (int i = 0; i < tableHorizontalScoreRight; i++) {
-      for (int j = 0; j < tableVerticalScoreRight; j++) {
+    for (int i = 0; i <= tableVerticalScoreRight - 1; i++) {
+      for (int j = 0; j <= tableHorizontalScoreRight - 1; j++) {
         result = tableCScore[i][j];
       }
     }
