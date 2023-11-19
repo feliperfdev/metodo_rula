@@ -39,8 +39,8 @@ class MuscularContractionPageState extends State<MuscularContractionPage> {
                   ),
                   const SizedBox(height: 10),
                   for (final question in controller.sideQuestionsLeft) ...{
-                    RadioListTile<int?>(
-                      value: (question['value'] as int),
+                    RadioListTile<String?>(
+                      value: (question['value'] as String),
                       groupValue: controller.selectedValueLeft,
                       onChanged: (value) {
                         setState(() {
@@ -66,8 +66,8 @@ class MuscularContractionPageState extends State<MuscularContractionPage> {
                   ),
                   const SizedBox(height: 10),
                   for (final question in controller.sideQuestionsRight) ...{
-                    RadioListTile<int?>(
-                      value: (question['value'] as int),
+                    RadioListTile<String?>(
+                      value: (question['value'] as String),
                       groupValue: controller.selectedValueRight,
                       onChanged: (value) {
                         setState(() {
@@ -90,8 +90,11 @@ class MuscularContractionPageState extends State<MuscularContractionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                controller.leftScore = controller.selectedValueLeft!;
-                controller.rightScore = controller.selectedValueRight!;
+                if (controller.selectedValueLeft!.isNotEmpty &&
+                    controller.selectedValueRight!.isNotEmpty) {
+                  controller.leftScore += 1;
+                  controller.rightScore += 1;
+                }
                 Modular.to.pushNamed('./../strength_and_load/').then(
                   (_) {
                     setState(() {

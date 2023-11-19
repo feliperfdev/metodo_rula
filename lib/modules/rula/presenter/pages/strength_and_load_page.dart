@@ -45,7 +45,7 @@ class StrengthAndLoadPageState extends State<StrengthAndLoadPage> {
                       value: (question['value'] as int),
                       onChanged: (value) {
                         setState(() {
-                          controller.leftScore = value!;
+                          controller.selectedQuestionLeft = value!;
                         });
                       },
                       title: Text(question['title']),
@@ -72,7 +72,7 @@ class StrengthAndLoadPageState extends State<StrengthAndLoadPage> {
                       value: (question['value'] as int),
                       onChanged: (value) {
                         setState(() {
-                          controller.rightScore = value!;
+                          controller.selectedQuestionRight = value!;
                         });
                       },
                       title: Text(question['title']),

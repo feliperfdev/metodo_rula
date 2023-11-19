@@ -8,6 +8,7 @@ import 'presenter/controllers/muscular_contraction_controller.dart';
 import 'presenter/controllers/neck_position_controller.dart';
 import 'presenter/controllers/strength_and_load_controller.dart';
 import 'presenter/controllers/table_a_controller.dart';
+import 'presenter/controllers/table_c_controller.dart';
 import 'presenter/pages/arm_position_side_questions_page.dart';
 import 'presenter/pages/fist_position_page.dart';
 import 'presenter/pages/forearm_position_page.dart';
@@ -26,6 +27,7 @@ class RulaModule extends Module {
         Bind((i) => MuscularContractionControllerImpl()),
         Bind((i) => StrengthAndLoadControllerImpl()),
         Bind((i) => NeckPositionControllerImpl()),
+        Bind((i) => TableCControllerImpl()),
       ];
 
   @override

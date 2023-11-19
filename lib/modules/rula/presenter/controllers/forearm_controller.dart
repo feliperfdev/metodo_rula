@@ -7,8 +7,8 @@ abstract class ForearmPositionController {
   late List<Map<String, dynamic>> sideQuestionsLeft;
   late List<Map<String, dynamic>> sideQuestionsRight;
 
-  int get totalTrueInLeft;
-  int get totalTrueInRight;
+  String? selectedValueLeft;
+  String? selectedValueRight;
 }
 
 class ForearmPositionControllerImpl implements ForearmPositionController {
@@ -19,17 +19,19 @@ class ForearmPositionControllerImpl implements ForearmPositionController {
   int rightScore = 0;
 
   @override
-  bool get buttonEnabled => leftScore != 0 && rightScore != 0;
+  bool get buttonEnabled =>
+      (selectedValueLeft != null && selectedValueLeft!.isNotEmpty) &&
+      (selectedValueRight != null && selectedValueRight!.isNotEmpty);
 
   @override
   List<Map<String, dynamic>> sideQuestionsLeft = [
     {
       'title': 'Rotação interna do ombro',
-      'value': false,
+      'value': 'f9fb4056-373b-4cfb-8ee8-ee72bdbc9a7b',
     },
     {
       'title': 'Rotação externa do ombro',
-      'value': false,
+      'value': 'd88f1953-4ae0-4ab9-8a65-0202aff56784',
     },
   ];
 
@@ -37,19 +39,17 @@ class ForearmPositionControllerImpl implements ForearmPositionController {
   List<Map<String, dynamic>> sideQuestionsRight = [
     {
       'title': 'Rotação interna do ombro',
-      'value': false,
+      'value': 'f9fb4056-373b-4cfb-8ee8-ee72bdbc9a7b',
     },
     {
       'title': 'Rotação externa do ombro',
-      'value': false,
+      'value': 'd88f1953-4ae0-4ab9-8a65-0202aff56784',
     },
   ];
 
   @override
-  int get totalTrueInLeft =>
-      sideQuestionsLeft.where((element) => (element['value'] as bool)).length;
+  String? selectedValueLeft;
 
   @override
-  int get totalTrueInRight =>
-      sideQuestionsRight.where((element) => (element['value'] as bool)).length;
+  String? selectedValueRight;
 }

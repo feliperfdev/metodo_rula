@@ -50,11 +50,12 @@ class _ForearmPositionPageState extends State<ForearmPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   for (final question in controller.sideQuestionsLeft) ...{
-                    CheckboxListTile(
-                      value: question['value'],
+                    RadioListTile<String?>(
+                      value: (question['value'] as String),
+                      groupValue: controller.selectedValueLeft,
                       onChanged: (value) {
                         setState(() {
-                          question['value'] = value;
+                          controller.selectedValueLeft = value;
                         });
                       },
                       title: Text(question['title']),
@@ -85,11 +86,12 @@ class _ForearmPositionPageState extends State<ForearmPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   for (final question in controller.sideQuestionsRight) ...{
-                    CheckboxListTile(
-                      value: question['value'],
+                    RadioListTile<String?>(
+                      value: (question['value'] as String),
+                      groupValue: controller.selectedValueRight,
                       onChanged: (value) {
                         setState(() {
-                          question['value'] = value;
+                          controller.selectedValueRight = value;
                         });
                       },
                       title: Text(question['title']),
@@ -108,8 +110,12 @@ class _ForearmPositionPageState extends State<ForearmPositionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                controller.leftScore += controller.totalTrueInLeft;
-                controller.rightScore += controller.totalTrueInRight;
+                if (controller.selectedValueLeft!.isNotEmpty) {
+                  controller.leftScore += 1;
+                }
+                if (controller.selectedValueRight!.isNotEmpty) {
+                  controller.rightScore += 1;
+                }
                 Modular.to.pushNamed('./../fist/').then(
                   (_) {
                     for (final question in controller.sideQuestionsLeft) {

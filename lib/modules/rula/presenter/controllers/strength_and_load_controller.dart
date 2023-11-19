@@ -7,9 +7,6 @@ abstract class StrengthAndLoadController {
   late List<Map<String, dynamic>> sideQuestionsLeft;
   late List<Map<String, dynamic>> sideQuestionsRight;
 
-  int get totalTrueInLeft;
-  int get totalTrueInRight;
-
   int? selectedQuestionLeft;
   int? selectedQuestionRight;
 }
@@ -66,16 +63,8 @@ class StrengthAndLoadControllerImpl implements StrengthAndLoadController {
   ];
 
   @override
-  int get totalTrueInLeft =>
-      sideQuestionsLeft.where((element) => (element['value'] as bool)).length;
+  int? selectedQuestionLeft;
 
   @override
-  int get totalTrueInRight =>
-      sideQuestionsRight.where((element) => (element['value'] as bool)).length;
-
-  @override
-  int? selectedQuestionLeft = 0;
-
-  @override
-  int? selectedQuestionRight = 0;
+  int? selectedQuestionRight;
 }

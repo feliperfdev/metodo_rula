@@ -73,7 +73,9 @@ class NeckPositionPageState extends State<NeckPositionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                controller.score += controller.totalTrue;
+                if (controller.totalTrue >= 1) {
+                  controller.score += 1;
+                }
 
                 Modular.to.pushNamed('./../trunk_position/');
               },

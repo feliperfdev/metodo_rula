@@ -7,11 +7,8 @@ abstract class MuscularContractionController {
   late List<Map<String, dynamic>> sideQuestionsLeft;
   late List<Map<String, dynamic>> sideQuestionsRight;
 
-  int get totalTrueInLeft;
-  int get totalTrueInRight;
-
-  int? selectedValueLeft;
-  int? selectedValueRight;
+  String? selectedValueLeft;
+  String? selectedValueRight;
 }
 
 class MuscularContractionControllerImpl
@@ -23,17 +20,18 @@ class MuscularContractionControllerImpl
   int rightScore = 0;
 
   @override
-  bool get buttonEnabled => leftScore != 0 && rightScore != 0;
+  bool get buttonEnabled =>
+      selectedValueLeft != null && selectedValueRight != null;
 
   @override
   List<Map<String, dynamic>> sideQuestionsLeft = [
     {
       'title': 'Postura principalmente estática',
-      'value': false,
+      'value': 'a1bd1838-4e53-439d-bf19-0586fb59f7d7',
     },
     {
       'title': 'Postura é dinâmica mais que 4 mov/min',
-      'value': false,
+      'value': '47cf420c-5bfa-44cb-a75f-6f2d6cbfd740',
     },
   ];
 
@@ -41,25 +39,17 @@ class MuscularContractionControllerImpl
   List<Map<String, dynamic>> sideQuestionsRight = [
     {
       'title': 'Postura principalmente estática',
-      'value': false,
+      'value': 'a1bd1838-4e53-439d-bf19-0586fb59f7d7',
     },
     {
       'title': 'Postura é dinâmica mais que 4 mov/min',
-      'value': false,
+      'value': '47cf420c-5bfa-44cb-a75f-6f2d6cbfd740',
     },
   ];
 
   @override
-  int get totalTrueInLeft =>
-      sideQuestionsLeft.where((element) => (element['value'] as bool)).length;
+  String? selectedValueLeft = '';
 
   @override
-  int get totalTrueInRight =>
-      sideQuestionsRight.where((element) => (element['value'] as bool)).length;
-
-  @override
-  int? selectedValueLeft = 0;
-
-  @override
-  int? selectedValueRight = 0;
+  String? selectedValueRight = '';
 }

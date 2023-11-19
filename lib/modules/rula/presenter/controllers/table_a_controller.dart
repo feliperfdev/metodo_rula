@@ -133,8 +133,11 @@ class TableAControllerImpl implements TableAController {
   };
 
   @override
-  int result(int arm, int forearm, int fist, int desv) =>
-      table[arm][0][fist][desv][forearm];
+  int result(int arm, int forearm, int fist, int desv) {
+    assert(
+        forearm < 3, 'O campo de ante-braço somente aceita valores de 0 a 2');
+    return table[arm][0][fist][desv][forearm];
+  }
 
   @override
   int leftResult = 0;

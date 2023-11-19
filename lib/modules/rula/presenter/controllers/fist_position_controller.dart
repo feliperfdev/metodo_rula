@@ -7,8 +7,8 @@ abstract class FistPositionController {
   late List<Map<String, dynamic>> sideQuestionsLeft;
   late List<Map<String, dynamic>> sideQuestionsRight;
 
-  late int selectedDesvValueLeft;
-  late int selectedDesvValueRight;
+  int? selectedDesvValueLeft;
+  int? selectedDesvValueRight;
 }
 
 class FistPositionControllerImpl implements FistPositionController {
@@ -19,7 +19,11 @@ class FistPositionControllerImpl implements FistPositionController {
   int rightScore = 0;
 
   @override
-  bool get buttonEnabled => leftScore != 0 && rightScore != 0;
+  bool get buttonEnabled =>
+      leftScore != 0 &&
+      rightScore != 0 &&
+      selectedDesvValueLeft != null &&
+      selectedDesvValueRight != null;
 
   @override
   List<Map<String, dynamic>> sideQuestionsLeft = [
@@ -46,8 +50,8 @@ class FistPositionControllerImpl implements FistPositionController {
   ];
 
   @override
-  int selectedDesvValueLeft = 0;
+  int? selectedDesvValueLeft;
 
   @override
-  int selectedDesvValueRight = 0;
+  int? selectedDesvValueRight;
 }

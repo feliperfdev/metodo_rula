@@ -26,13 +26,13 @@ class _TableAPageState extends State<TableAPage> {
       arm.leftScore,
       forearm.leftScore - 1,
       fist.leftScore,
-      fist.selectedDesvValueLeft,
+      fist.selectedDesvValueLeft!,
     );
     controller.rightResult = controller.result(
       arm.rightScore,
       forearm.rightScore - 1,
       fist.rightScore,
-      fist.selectedDesvValueRight,
+      fist.selectedDesvValueRight!,
     );
     super.initState();
   }
