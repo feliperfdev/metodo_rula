@@ -41,6 +41,7 @@ class _ForearmPositionPageState extends State<ForearmPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   ScoreSetterWidget(
+                    limit: 2,
                     onScore: (score) {
                       setState(() {
                         controller.leftScore = score;
@@ -75,6 +76,7 @@ class _ForearmPositionPageState extends State<ForearmPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   ScoreSetterWidget(
+                    limit: 2,
                     onScore: (score) {
                       setState(() {
                         controller.rightScore = score;

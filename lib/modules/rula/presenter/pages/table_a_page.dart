@@ -21,6 +21,23 @@ class _TableAPageState extends State<TableAPage> {
   final fist = Modular.get<FistPositionController>();
 
   @override
+  void initState() {
+    controller.leftResult = controller.result(
+      arm.leftScore,
+      forearm.leftScore - 1,
+      fist.leftScore,
+      fist.selectedDesvValueLeft,
+    );
+    controller.rightResult = controller.result(
+      arm.rightScore,
+      forearm.rightScore - 1,
+      fist.rightScore,
+      fist.selectedDesvValueRight,
+    );
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -40,9 +57,7 @@ class _TableAPageState extends State<TableAPage> {
               ),
               const SizedBox(height: 10),
               Text(
-                controller
-                    .result(arm.leftScore, forearm.leftScore, fist.leftScore, 1)
-                    .toString(),
+                '${controller.leftResult}',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -60,10 +75,7 @@ class _TableAPageState extends State<TableAPage> {
               ),
               const SizedBox(height: 10),
               Text(
-                controller
-                    .result(
-                        arm.rightScore, forearm.rightScore, fist.rightScore, 1)
-                    .toString(),
+                '${controller.rightResult}',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,

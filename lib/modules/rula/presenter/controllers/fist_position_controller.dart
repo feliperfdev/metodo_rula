@@ -7,8 +7,8 @@ abstract class FistPositionController {
   late List<Map<String, dynamic>> sideQuestionsLeft;
   late List<Map<String, dynamic>> sideQuestionsRight;
 
-  int get totalTrueInLeft;
-  int get totalTrueInRight;
+  late int selectedDesvValueLeft;
+  late int selectedDesvValueRight;
 }
 
 class FistPositionControllerImpl implements FistPositionController {
@@ -25,11 +25,11 @@ class FistPositionControllerImpl implements FistPositionController {
   List<Map<String, dynamic>> sideQuestionsLeft = [
     {
       'title': 'Desvio discreto',
-      'value': false,
+      'value': 1,
     },
     {
       'title': 'Desvio acentuado',
-      'value': false,
+      'value': 2,
     },
   ];
 
@@ -37,19 +37,17 @@ class FistPositionControllerImpl implements FistPositionController {
   List<Map<String, dynamic>> sideQuestionsRight = [
     {
       'title': 'Desvio discreto',
-      'value': false,
+      'value': 1,
     },
     {
       'title': 'Desvio acentuado',
-      'value': false,
+      'value': 2,
     },
   ];
 
   @override
-  int get totalTrueInLeft =>
-      sideQuestionsLeft.where((element) => (element['value'] as bool)).length;
+  int selectedDesvValueLeft = 0;
 
   @override
-  int get totalTrueInRight =>
-      sideQuestionsRight.where((element) => (element['value'] as bool)).length;
+  int selectedDesvValueRight = 0;
 }

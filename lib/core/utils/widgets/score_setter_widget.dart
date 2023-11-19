@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ScoreSetterWidget extends StatefulWidget {
   final Function(int score) onScore;
+  final int limit;
   const ScoreSetterWidget({
     super.key,
     required this.onScore,
+    required this.limit,
   });
 
   @override
@@ -52,15 +54,17 @@ class _ScoreSetterWidgetState extends State<ScoreSetterWidget> {
           ),
           const SizedBox(width: 8),
           IconButton(
-            onPressed: () {
-              setState(() {
-                score++;
-                widget.onScore(score);
-              });
-            },
-            icon: const Icon(
+            onPressed: score == widget.limit
+                ? null
+                : () {
+                    setState(() {
+                      score++;
+                      widget.onScore(score);
+                    });
+                  },
+            icon: Icon(
               Icons.add,
-              color: Colors.purple,
+              color: score == widget.limit ? Colors.grey : Colors.purple,
             ),
           ),
         ],

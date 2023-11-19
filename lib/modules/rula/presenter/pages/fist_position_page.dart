@@ -41,6 +41,7 @@ class _FistPositionPageState extends State<FistPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   ScoreSetterWidget(
+                    limit: 3,
                     onScore: (score) {
                       setState(() {
                         controller.leftScore = score;
@@ -49,11 +50,12 @@ class _FistPositionPageState extends State<FistPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   for (final question in controller.sideQuestionsLeft) ...{
-                    CheckboxListTile(
-                      value: question['value'],
+                    RadioListTile<int>(
+                      groupValue: controller.selectedDesvValueLeft,
+                      value: (question['value'] as int),
                       onChanged: (value) {
                         setState(() {
-                          question['value'] = value;
+                          controller.selectedDesvValueLeft = value!;
                         });
                       },
                       title: Text(question['title']),
@@ -75,6 +77,7 @@ class _FistPositionPageState extends State<FistPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   ScoreSetterWidget(
+                    limit: 3,
                     onScore: (score) {
                       setState(() {
                         controller.rightScore = score;
@@ -83,11 +86,12 @@ class _FistPositionPageState extends State<FistPositionPage> {
                   ),
                   const SizedBox(height: 10),
                   for (final question in controller.sideQuestionsRight) ...{
-                    CheckboxListTile(
-                      value: question['value'],
+                    RadioListTile<int>(
+                      groupValue: controller.selectedDesvValueRight,
+                      value: (question['value'] as int),
                       onChanged: (value) {
                         setState(() {
-                          question['value'] = value;
+                          controller.selectedDesvValueRight = value!;
                         });
                       },
                       title: Text(question['title']),
@@ -106,8 +110,6 @@ class _FistPositionPageState extends State<FistPositionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                controller.leftScore += controller.totalTrueInLeft;
-                controller.rightScore += controller.totalTrueInRight;
                 Modular.to.pushNamed('./../table_a/').then(
                   (_) {
                     for (final question in controller.sideQuestionsLeft) {

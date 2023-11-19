@@ -1,5 +1,8 @@
 abstract class TableAController {
   int result(int arm, int forearm, int fist, int desv);
+
+  late int leftResult;
+  late int rightResult;
 }
 
 class TableAControllerImpl implements TableAController {
@@ -132,4 +135,10 @@ class TableAControllerImpl implements TableAController {
   @override
   int result(int arm, int forearm, int fist, int desv) =>
       table[arm][0][fist][desv][forearm];
+
+  @override
+  int leftResult = 0;
+
+  @override
+  int rightResult = 0;
 }
