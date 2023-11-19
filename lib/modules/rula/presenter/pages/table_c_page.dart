@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/table_c_widget.dart';
 
 import '../controllers/rula_result_controller.dart';
@@ -74,6 +75,18 @@ class _TableCPageState extends State<TableCPage> {
           ],
         ),
       ),
+      persistentFooterButtons: [
+        Column(
+          children: [
+            CustomButtonWidget(
+              text: 'Nova vistoria',
+              onTap: () {
+                Modular.to.navigate(Modular.initialRoute);
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
