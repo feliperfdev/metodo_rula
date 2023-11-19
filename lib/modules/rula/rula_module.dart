@@ -4,10 +4,16 @@ import 'package:metodo_rula/modules/rula/presenter/pages/arm_position_page.dart'
 import 'presenter/controllers/arm_position_controller.dart';
 import 'presenter/controllers/fist_position_controller.dart';
 import 'presenter/controllers/forearm_controller.dart';
+import 'presenter/controllers/muscular_contraction_controller.dart';
+import 'presenter/controllers/neck_position_controller.dart';
+import 'presenter/controllers/strength_and_load_controller.dart';
 import 'presenter/controllers/table_a_controller.dart';
 import 'presenter/pages/arm_position_side_questions_page.dart';
 import 'presenter/pages/fist_position_page.dart';
 import 'presenter/pages/forearm_position_page.dart';
+import 'presenter/pages/muscular_contraction_page.dart';
+import 'presenter/pages/neck_position_page.dart';
+import 'presenter/pages/strength_and_load_page.dart';
 import 'presenter/pages/table_a_page.dart';
 
 class RulaModule extends Module {
@@ -17,6 +23,9 @@ class RulaModule extends Module {
         Bind((i) => ForearmPositionControllerImpl()),
         Bind((i) => FistPositionControllerImpl()),
         Bind((i) => TableAControllerImpl()),
+        Bind((i) => MuscularContractionControllerImpl()),
+        Bind((i) => StrengthAndLoadControllerImpl()),
+        Bind((i) => NeckPositionControllerImpl()),
       ];
 
   @override
@@ -40,6 +49,22 @@ class RulaModule extends Module {
         ChildRoute(
           '/table_a/',
           child: (_, args) => const TableAPage(),
+        ),
+        ChildRoute(
+          '/muscular_contraction/',
+          child: (_, args) => const MuscularContractionPage(),
+        ),
+        ChildRoute(
+          '/strength_and_load/',
+          child: (_, args) => const StrengthAndLoadPage(),
+        ),
+        ChildRoute(
+          '/neck_position/',
+          child: (_, args) => const NeckPositionPage(),
+        ),
+        ChildRoute(
+          '/trunk_position/',
+          child: (_, args) => const NeckPositionPage(),
         ),
       ];
 }

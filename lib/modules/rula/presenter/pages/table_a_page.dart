@@ -89,11 +89,21 @@ class _TableAPageState extends State<TableAPage> {
       ),
       persistentFooterButtons: [
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 8),
+            const Text(
+              'Tronco e membros inferiores',
+              style: TextStyle(
+                color: Colors.purple,
+                fontSize: 15,
+              ),
+            ),
+            const SizedBox(height: 10),
             CustomButtonWidget(
-              text: 'Próximo - Membros inferiores',
+              text: 'Próximo',
               onTap: () {
-                Modular.to.pushNamed('./../table_a/');
+                Modular.to.pushNamed('./../muscular_contraction/');
               },
             ),
           ],
