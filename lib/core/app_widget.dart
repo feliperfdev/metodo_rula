@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:intl/intl.dart';
 import 'package:metodo_rula/core/utils/themes/app_theme.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +12,6 @@ class AppWidget extends StatelessWidget {
       title: 'Método RULA',
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
-      locale: Locale(Intl.getCurrentLocale()),
       theme: AppTheme.main,
     );
   }
