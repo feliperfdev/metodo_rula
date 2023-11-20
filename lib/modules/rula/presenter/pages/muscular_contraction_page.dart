@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 
 import '../controllers/muscular_contraction_controller.dart';
@@ -108,7 +109,7 @@ class MuscularContractionPageState extends State<MuscularContractionPage> {
                   controller.rightScore += 1;
                 }
                 Modular.to
-                    .pushNamed('./../strength_and_load/',
+                    .pushNamed('./..${AppRoutes.strengthAndLoad}',
                         arguments: widget.legs)
                     .then(
                   (_) {

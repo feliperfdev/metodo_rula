@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 
 import '../controllers/muscular_contraction_controller.dart';
@@ -121,7 +122,7 @@ class StrengthAndLoadPageState extends State<StrengthAndLoadPage> {
                       muscularContraction.rightScore +
                       controller.rightScore;
 
-                  Modular.to.pushNamed('./../table_c/').then(
+                  Modular.to.pushNamed('./..${AppRoutes.tableC}').then(
                     (_) {
                       setState(() {
                         controller.selectedQuestionLeft = null;
@@ -135,7 +136,7 @@ class StrengthAndLoadPageState extends State<StrengthAndLoadPage> {
                   tableC.tableVerticalScoreRight =
                       muscularContraction.rightScore + controller.rightScore;
 
-                  Modular.to.pushNamed('./../neck_position/').then(
+                  Modular.to.pushNamed('./..${AppRoutes.neckPosition}').then(
                     (_) {
                       setState(() {
                         controller.selectedQuestionLeft = null;

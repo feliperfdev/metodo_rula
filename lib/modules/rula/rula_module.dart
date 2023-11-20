@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/modules/rula/presenter/pages/arm_position_page.dart';
 
 import 'presenter/controllers/arm_position_controller.dart';
@@ -45,39 +46,39 @@ class RulaModule extends Module {
           child: (_, args) => const ArmPositionPage(),
         ),
         ChildRoute(
-          '/arm-pos-side-questions/',
+          AppRoutes.armPositionSideQuestions,
           child: (_, args) => const ArmPositionSideQuestionsPage(),
         ),
         ChildRoute(
-          '/forearm/',
+          AppRoutes.forearm,
           child: (_, args) => const ForearmPositionPage(),
         ),
         ChildRoute(
-          '/fist/',
+          AppRoutes.fist,
           child: (_, args) => const FistPositionPage(),
         ),
         ChildRoute(
-          '/table_a/',
+          AppRoutes.tableA,
           child: (_, args) => const TableAPage(),
         ),
         ChildRoute(
-          '/muscular_contraction/',
+          AppRoutes.muscularContraction,
           child: (_, args) => MuscularContractionPage(legs: args.data),
         ),
         ChildRoute(
-          '/strength_and_load/',
+          AppRoutes.strengthAndLoad,
           child: (_, args) => StrengthAndLoadPage(legs: args.data),
         ),
         ChildRoute(
-          '/neck_position/',
+          AppRoutes.neckPosition,
           child: (_, args) => const NeckPositionPage(),
         ),
         ChildRoute(
-          '/trunk_position/',
+          AppRoutes.trunkPosition,
           child: (_, args) => const TrunkPositionPage(),
         ),
         ChildRoute(
-          '/table_c/',
+          AppRoutes.tableC,
           child: (_, args) => const TableCPage(),
         ),
       ];

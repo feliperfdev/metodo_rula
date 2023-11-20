@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 
 import '../controllers/arm_position_controller.dart';
@@ -108,7 +109,7 @@ class _ArmPositionSideQuestionsPageState
                 onTap: () {
                   controller.leftScore += controller.totalTrueInLeft;
                   controller.rightScore += controller.totalTrueInRight;
-                  Modular.to.pushNamed('./../forearm/').then(
+                  Modular.to.pushNamed('./..${AppRoutes.forearm}').then(
                     (_) {
                       for (final question in controller.sideQuestionsLeft) {
                         setState(() {

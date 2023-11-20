@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
@@ -110,7 +111,7 @@ class _FistPositionPageState extends State<FistPositionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                Modular.to.pushNamed('./../table_a/').then(
+                Modular.to.pushNamed('./..${AppRoutes.tableA}').then(
                   (_) {
                     for (final question in controller.sideQuestionsLeft) {
                       setState(() {

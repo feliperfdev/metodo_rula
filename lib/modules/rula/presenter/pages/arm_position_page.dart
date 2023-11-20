@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
@@ -84,7 +85,7 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                Modular.to.pushNamed('./arm-pos-side-questions/');
+                Modular.to.pushNamed('.${AppRoutes.armPositionSideQuestions}');
               },
             ),
           ],

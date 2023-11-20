@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
@@ -85,8 +86,10 @@ class TrunkPositionPageState extends State<TrunkPositionPage> {
                 tableB.tableBScoreLeft = neck.score + controller.score;
                 tableB.tableBScoreRight = neck.score + controller.score;
 
-                Modular.to
-                    .pushNamed('./../muscular_contraction/', arguments: true);
+                Modular.to.pushNamed(
+                  './..${AppRoutes.muscularContraction}',
+                  arguments: true,
+                );
               },
             ),
           ],

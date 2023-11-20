@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 
 import '../../../../core/utils/widgets/custom_button_widget.dart';
 import '../controllers/arm_position_controller.dart';
@@ -103,8 +104,10 @@ class _TableAPageState extends State<TableAPage> {
             CustomButtonWidget(
               text: 'Próximo',
               onTap: () {
-                Modular.to
-                    .pushNamed('./../muscular_contraction/', arguments: false);
+                Modular.to.pushNamed(
+                  './..${AppRoutes.muscularContraction}',
+                  arguments: false,
+                );
               },
             ),
           ],

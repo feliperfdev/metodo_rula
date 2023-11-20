@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
@@ -77,7 +78,7 @@ class NeckPositionPageState extends State<NeckPositionPage> {
                   controller.score += 1;
                 }
 
-                Modular.to.pushNamed('./../trunk_position/');
+                Modular.to.pushNamed('./..${AppRoutes.trunkPosition}');
               },
             ),
           ],

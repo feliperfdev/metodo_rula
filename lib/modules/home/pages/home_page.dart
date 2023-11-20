@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 
-class HomePage extends StatelessWidget {
+import '../controllers/home_controller.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final controller = Modular.get<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,50 +26,32 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Column(
+          Column(
             children: [
-              Text(
+              const Text(
                 'EQUIPE',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.purple,
                 ),
               ),
-              Text(
-                'André Lucas do Nascimento dos Santos',
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 14.5,
+              for (final member in controller.members) ...{
+                Text(
+                  member,
+                  style: const TextStyle(
+                    color: Colors.purple,
+                    fontSize: 14.5,
+                  ),
                 ),
-              ),
-              Text(
-                'Daniel Barbosa Bastos',
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 14.5,
-                ),
-              ),
-              Text(
-                'Felipe Azevedo Ribeiro',
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 14.5,
-                ),
-              ),
-              Text(
-                'João Pedro de Lima Oliveira',
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 14.5,
-                ),
-              ),
+                const SizedBox(height: 3),
+              },
             ],
           ),
           const SizedBox(height: 20),
           Center(
             child: ElevatedButton(
               onPressed: () {
-                Modular.to.pushNamed('/rula/');
+                Modular.to.pushNamed(AppRoutes.rula);
               },
               child: const Text(
                 'Iniciar método RULA',

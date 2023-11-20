@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:metodo_rula/core/utils/app_routes.dart';
 import 'package:metodo_rula/modules/home/controllers/home_controller.dart';
 import 'package:metodo_rula/modules/home/pages/home_page.dart';
 
@@ -17,7 +18,7 @@ class HomeModule extends Module {
           child: (_, args) => const HomePage(),
         ),
         ModuleRoute(
-          '/rula/',
+          AppRoutes.rula,
           module: RulaModule(),
         ),
       ];
