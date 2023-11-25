@@ -47,7 +47,9 @@ class RulaModule extends Module {
         ),
         ChildRoute(
           AppRoutes.armPositionSideQuestions,
-          child: (_, args) => const ArmPositionSideQuestionsPage(),
+          child: (_, args) => ArmPositionSideQuestionsPage(
+            armPicture: args.data,
+          ),
         ),
         ChildRoute(
           AppRoutes.forearm,

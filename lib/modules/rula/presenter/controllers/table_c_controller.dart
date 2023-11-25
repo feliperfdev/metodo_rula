@@ -36,11 +36,11 @@ class TableCControllerImpl implements TableCController {
   @override
   int get resultLeft {
     int result = 0;
-    if (tableHorizontalScoreLeft > 8) {
-      tableHorizontalScoreLeft = 8;
+    if (tableHorizontalScoreLeft >= 6) {
+      tableHorizontalScoreLeft = 7;
     }
     if (tableVerticalScoreLeft > 7) {
-      tableVerticalScoreLeft = 7;
+      tableVerticalScoreLeft = 8;
     }
     for (int i = 0; i <= tableVerticalScoreLeft - 1; i++) {
       for (int j = 0; j <= tableHorizontalScoreLeft - 1; j++) {
@@ -53,11 +53,11 @@ class TableCControllerImpl implements TableCController {
   @override
   int get resultRight {
     int result = 0;
-    if (tableHorizontalScoreRight > 8) {
-      tableHorizontalScoreRight = 8;
+    if (tableHorizontalScoreRight >= 6) {
+      tableHorizontalScoreRight = 7;
     }
     if (tableVerticalScoreRight > 7) {
-      tableVerticalScoreRight = 7;
+      tableVerticalScoreRight = 8;
     }
     for (int i = 0; i <= tableVerticalScoreRight - 1; i++) {
       for (int j = 0; j <= tableHorizontalScoreRight - 1; j++) {

@@ -1,6 +1,10 @@
+import 'package:images_picker/images_picker.dart';
+
 abstract class ArmPositionController {
   late int leftScore;
   late int rightScore;
+
+  Media? armPicture;
 
   bool get buttonEnabled;
 
@@ -60,4 +64,7 @@ class ArmPositionControllerImpl implements ArmPositionController {
   @override
   int get totalTrueInRight =>
       sideQuestionsRight.where((element) => (element['value'] as bool)).length;
+
+  @override
+  Media? armPicture;
 }

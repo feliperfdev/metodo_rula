@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:metodo_rula/core/utils/app_routes.dart';
+import 'package:metodo_rula/core/utils/image_picker/image_picker_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
@@ -22,7 +23,7 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
       appBar: AppBar(
         title: const Text('Posição dos braços'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,6 +76,12 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 100),
+            ImagePickerWidget(
+              onMediaPicked: (picture) {
+                controller.armPicture = picture;
+              },
+            ),
           ],
         ),
       ),
@@ -85,7 +92,10 @@ class _ArmPositionPageState extends State<ArmPositionPage> {
               enabled: controller.buttonEnabled,
               text: 'Próximo',
               onTap: () {
-                Modular.to.pushNamed('.${AppRoutes.armPositionSideQuestions}');
+                Modular.to.pushNamed(
+                  '.${AppRoutes.armPositionSideQuestions}',
+                  arguments: controller.armPicture,
+                );
               },
             ),
           ],
