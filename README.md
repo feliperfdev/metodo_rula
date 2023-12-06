@@ -10,5 +10,6 @@ Aplicativo desenvolvido para a 3ª avaliação da disciplina de **`Higiene e Seg
 
 - André Lucas do Nascimento dos Santos
 - Daniel Barbosa Bastos
+- Daniel Sousa Duplat
 - Felipe Azevedo Ribeiro
 - João Pedro de Lima Oliveira
