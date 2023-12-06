@@ -7,6 +7,8 @@ abstract class TableCController {
 
   int get resultLeft;
   int get resultRight;
+
+  String get inspectionDate;
 }
 
 class TableCControllerImpl implements TableCController {
@@ -65,5 +67,29 @@ class TableCControllerImpl implements TableCController {
       }
     }
     return result;
+  }
+
+  final _months = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ];
+
+  final _now = DateTime.now();
+
+  @override
+  String get inspectionDate {
+    final monthTranslated = _months[_now.month - 1];
+
+    return '${_now.day} de $monthTranslated de ${_now.year}';
   }
 }

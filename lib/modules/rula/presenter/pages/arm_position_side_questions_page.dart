@@ -117,8 +117,10 @@ class _ArmPositionSideQuestionsPageState
               CustomButtonWidget(
                 text: 'Próximo',
                 onTap: () {
-                  controller.leftScore += controller.totalTrueInLeft;
-                  controller.rightScore += controller.totalTrueInRight;
+                  controller.leftScore =
+                      controller.calculateScore(controller.sideQuestionsLeft);
+                  controller.rightScore =
+                      controller.calculateScore(controller.sideQuestionsRight);
                   Modular.to.pushNamed('./..${AppRoutes.forearm}').then(
                     (_) {
                       for (final question in controller.sideQuestionsLeft) {

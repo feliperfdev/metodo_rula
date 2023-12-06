@@ -117,16 +117,10 @@ class _FistPositionPageState extends State<FistPositionPage> {
               onTap: () {
                 Modular.to.pushNamed('./..${AppRoutes.tableA}').then(
                   (_) {
-                    for (final question in controller.sideQuestionsLeft) {
-                      setState(() {
-                        question['value'] = false;
-                      });
-                    }
-                    for (final question in controller.sideQuestionsRight) {
-                      setState(() {
-                        question['value'] = false;
-                      });
-                    }
+                    setState(() {
+                      controller.selectedDesvValueLeft = null;
+                      controller.selectedDesvValueRight = null;
+                    });
                   },
                 );
               },
