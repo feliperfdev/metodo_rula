@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:metodo_rula/core/utils/app_routes.dart';
+import 'package:metodo_rula/core/utils/image_picker/image_picker_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 
 import '../controllers/muscular_contraction_controller.dart';
@@ -95,6 +96,9 @@ class StrengthAndLoadPageState extends State<StrengthAndLoadPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 60),
+            const ImagePickerWidget(),
+            const SizedBox(height: 20),
           ],
         ),
       ),

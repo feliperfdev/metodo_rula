@@ -7,6 +7,8 @@ abstract class TableCController {
 
   int get resultLeft;
   int get resultRight;
+
+  String get inspectionDate;
 }
 
 class TableCControllerImpl implements TableCController {
@@ -36,11 +38,11 @@ class TableCControllerImpl implements TableCController {
   @override
   int get resultLeft {
     int result = 0;
-    if (tableHorizontalScoreLeft > 8) {
-      tableHorizontalScoreLeft = 8;
+    if (tableHorizontalScoreLeft >= 6) {
+      tableHorizontalScoreLeft = 7;
     }
     if (tableVerticalScoreLeft > 7) {
-      tableVerticalScoreLeft = 7;
+      tableVerticalScoreLeft = 8;
     }
     for (int i = 0; i <= tableVerticalScoreLeft - 1; i++) {
       for (int j = 0; j <= tableHorizontalScoreLeft - 1; j++) {
@@ -53,11 +55,11 @@ class TableCControllerImpl implements TableCController {
   @override
   int get resultRight {
     int result = 0;
-    if (tableHorizontalScoreRight > 8) {
-      tableHorizontalScoreRight = 8;
+    if (tableHorizontalScoreRight >= 6) {
+      tableHorizontalScoreRight = 7;
     }
     if (tableVerticalScoreRight > 7) {
-      tableVerticalScoreRight = 7;
+      tableVerticalScoreRight = 8;
     }
     for (int i = 0; i <= tableVerticalScoreRight - 1; i++) {
       for (int j = 0; j <= tableHorizontalScoreRight - 1; j++) {
@@ -65,5 +67,29 @@ class TableCControllerImpl implements TableCController {
       }
     }
     return result;
+  }
+
+  final _months = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ];
+
+  final _now = DateTime.now();
+
+  @override
+  String get inspectionDate {
+    final monthTranslated = _months[_now.month - 1];
+
+    return '${_now.day} de $monthTranslated de ${_now.year}';
   }
 }

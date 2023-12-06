@@ -18,6 +18,12 @@ class _TableCPageState extends State<TableCPage> {
   final rula = Modular.get<RulaResultController>();
 
   @override
+  void initState() {
+    setState(() {});
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -29,6 +35,15 @@ class _TableCPageState extends State<TableCPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 30),
+            Text(
+              controller.inspectionDate,
+              style: const TextStyle(
+                color: Colors.purple,
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+              ),
+            ),
             const SizedBox(height: 30),
             TableCWidget(
               verticalScore: controller.tableVerticalScoreLeft,

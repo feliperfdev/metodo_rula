@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:images_picker/images_picker.dart';
 import 'package:metodo_rula/core/utils/app_routes.dart';
+import 'package:metodo_rula/core/utils/image_picker/image_picker_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 
 import '../controllers/arm_position_controller.dart';
 
 class ArmPositionSideQuestionsPage extends StatefulWidget {
-  const ArmPositionSideQuestionsPage({super.key});
+  final Media? armPicture;
+  const ArmPositionSideQuestionsPage({
+    super.key,
+    this.armPicture,
+  });
 
   @override
   State<ArmPositionSideQuestionsPage> createState() =>
@@ -98,6 +104,10 @@ class _ArmPositionSideQuestionsPageState
                   ],
                 ),
               ),
+              const SizedBox(height: 100),
+              ImagePickerWidget(
+                importedMedia: widget.armPicture,
+              ),
             ],
           ),
         ),
@@ -107,8 +117,10 @@ class _ArmPositionSideQuestionsPageState
               CustomButtonWidget(
                 text: 'Próximo',
                 onTap: () {
-                  controller.leftScore += controller.totalTrueInLeft;
-                  controller.rightScore += controller.totalTrueInRight;
+                  controller.leftScore =
+                      controller.calculateScore(controller.sideQuestionsLeft);
+                  controller.rightScore =
+                      controller.calculateScore(controller.sideQuestionsRight);
                   Modular.to.pushNamed('./..${AppRoutes.forearm}').then(
                     (_) {
                       for (final question in controller.sideQuestionsLeft) {

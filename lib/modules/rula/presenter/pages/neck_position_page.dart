@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:metodo_rula/core/utils/app_routes.dart';
+import 'package:metodo_rula/core/utils/image_picker/image_picker_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/custom_button_widget.dart';
 import 'package:metodo_rula/core/utils/widgets/score_setter_widget.dart';
 
@@ -22,7 +23,7 @@ class NeckPositionPageState extends State<NeckPositionPage> {
       appBar: AppBar(
         title: const Text('Posição do pescoço'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,6 +65,9 @@ class NeckPositionPageState extends State<NeckPositionPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 60),
+            const ImagePickerWidget(),
+            const SizedBox(height: 20),
           ],
         ),
       ),
